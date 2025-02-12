@@ -6,6 +6,9 @@ QuickShell 是一个基于 Qt6 开发的图形用户界面（GUI）脚本运行�
 
 ![Screenshot](screenshot.png)
 
+> **警告：**
+>
+> 此项目正在完善中，部分功能仍在开发阶段！
 
 ## 安装
 
@@ -27,17 +30,12 @@ git clone https://github.com/CatIsNotFound/QuickShell.git
 
 #### 第二步：构建项目
 
-
-
->**注意：**在进行构建前，请先安装**含有 Qt6 的必要组件及其必要依赖**！如果已安装 Qt Creator，请在 Qt Creator 下使用 Cmake for Qt 6.x 以构建项目。
+>**注意：**
+>
+> 在进行构建前，请先安装**含有 Qt6.5 及以上版本的必要组件及其必要依赖**！如果已安装 Qt Creator，请在 Qt Creator 下使用 Cmake for Qt 6.x 以构建项目。
 
 ```sh
 cd QuickShell
 mkdir build && cd build
 cmake ..
 ```
-
-#### 第三步：运行
-
-略
-
