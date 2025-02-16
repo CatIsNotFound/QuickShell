@@ -54,7 +54,8 @@ int main(int argc, char *argv[])
 
     QTranslator translator;
     QString language = settings->getValue("Interface", "language");
-    if (comparesEqual(language, "System")) {
+
+    if (!QString::compare(language, "System")) {
         // System Auto select language
         const QStringList uiLanguages = QLocale::system().uiLanguages();
         for (const QString &locale : uiLanguages) {
@@ -77,8 +78,8 @@ int main(int argc, char *argv[])
         }
     }
     QString theme = settings->getValue("Interface", "theme");
-    if (!comparesEqual(theme, "System")) {
-        QFile qssFile("themes/" + theme);
+    if (QString::compare(theme, "System")) {
+        QFile qssFile(theme);
         if (qssFile.open(QFile::ReadOnly)) {
             a.setStyleSheet(qssFile.readAll());
             qssFile.close();
@@ -92,14 +93,14 @@ int main(int argc, char *argv[])
     }
 
     QString window = settings->getValue("Interface", "window");
-    if (!window.isEmpty() && !comparesEqual(window, "System")) {
+    if (!window.isEmpty() && QString::compare(window, "System")) {
         a.setStyle(QStyleFactory::create(window));
     }
     MainWindow mainWindow;
     mainWindow.show();
     QDir cDir(".");
     QString collection_path = settings->getValue("Collection", "name");
-    if (comparesEqual(collection_path, "Default")) {
+    if (!QString::compare(collection_path, "Default")) {
         collection_path = cDir.absolutePath() + "/scripts/Collection.conf";
     }
     mainWindow.initConfig(collection_path, *settings);

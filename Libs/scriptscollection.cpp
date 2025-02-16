@@ -52,7 +52,7 @@ int ScriptsCollection::loadCollection(QString fileName) {
         return 3;
     }
     for (auto i : collection->allKeys()) {
-        if (comparesEqual(i, "Collection/id")) {
+        if (!QString::compare(i, "Collection/id")) {
             is_valid = true;
             break;
         }
@@ -97,7 +97,7 @@ QStringList ScriptsCollection::getItems(QString group) {
     QStringList children = collection->childGroups();
     QStringList items;
     for (auto i : children) {
-        if (comparesEqual(collection->value(i + "/group").toString(), group)) {
+        if (!QString::compare(collection->value(i + "/group").toString(), group)) {
             items.push_back(i);
         }
     }
@@ -107,7 +107,7 @@ QStringList ScriptsCollection::getItems(QString group) {
 bool ScriptsCollection::findGroup(QString group) {
     QStringList children = getGroups();
     for (auto i : children) {
-        if (comparesEqual(i, group)) {
+        if (!QString::compare(i, group)) {
             return true;
         }
     }
@@ -117,7 +117,7 @@ bool ScriptsCollection::findGroup(QString group) {
 bool ScriptsCollection::findItem(QString group, QString item) {
     QStringList items = getItems(group);
     for (auto i : items) {
-        if (comparesEqual(i, item)) {
+        if (!QString::compare(i, item)) {
             return true;
         }
     }
@@ -127,7 +127,7 @@ bool ScriptsCollection::findItem(QString group, QString item) {
 bool ScriptsCollection::findGroupOrItem(QString key) {
     QStringList children = collection->childGroups();
     for (auto i : children) {
-        if (comparesEqual(i, key)) {
+        if (!QString::compare(i, key)) {
             return true;
         }
     }
@@ -251,7 +251,7 @@ void ScriptsCollection::setNeedArgs(QString item, QString group, bool is_need_ar
 bool ScriptsCollection::getNeedArgs(QString item, QString group) {
     if (findItem(group, item)) {
         QString value = collection->value(item + "/need_args").toString();
-        if (comparesEqual(value, "Yes")) {
+        if (!QString::compare(value, "Yes")) {
             return true;
         } else {
             return false;

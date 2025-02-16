@@ -93,7 +93,7 @@ int Settings::loadConfigFile(QString configFile, bool fromCommand) {
 
     bool is_exist = false;
     for (auto i : yourSettings->allKeys()) {
-        if (comparesEqual(i, "Config/version")) {
+        if (!QString::compare(i, "Config/version")) {
             is_exist = true;
             break;
         }

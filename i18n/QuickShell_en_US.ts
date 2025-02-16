@@ -262,7 +262,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../GUI/preference.ui" line="221"/>
+        <location filename="../GUI/preference.ui" line="226"/>
         <source>Window:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -279,6 +279,7 @@
     <message>
         <location filename="../GUI/preference.ui" line="100"/>
         <location filename="../GUI/preference.ui" line="148"/>
+        <location filename="../GUI/preference.ui" line="218"/>
         <source>Browse...</source>
         <translation type="unfinished"></translation>
     </message>
@@ -300,7 +301,7 @@
     <message>
         <location filename="../GUI/preference.ui" line="194"/>
         <location filename="../GUI/preference.ui" line="213"/>
-        <location filename="../GUI/preference.ui" line="229"/>
+        <location filename="../GUI/preference.ui" line="234"/>
         <source>Decided by System</source>
         <translation type="unfinished"></translation>
     </message>
@@ -310,7 +311,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../GUI/preference.cpp" line="142"/>
+        <location filename="../GUI/preference.cpp" line="149"/>
         <source>All settings have been saved! Some settings need to take effect on the next startup.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -325,13 +326,28 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../GUI/preference.cpp" line="56"/>
-        <location filename="../GUI/preference.cpp" line="167"/>
+        <location filename="../GUI/preference.cpp" line="51"/>
+        <source>Script Name: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../GUI/preference.cpp" line="55"/>
+        <location filename="../GUI/preference.cpp" line="174"/>
         <source>Current file is not valid!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../GUI/preference.cpp" line="141"/>
+        <location filename="../GUI/preference.cpp" line="69"/>
+        <source>Open Theme File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../GUI/preference.cpp" line="70"/>
+        <source>Theme Files (*.qss)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../GUI/preference.cpp" line="148"/>
         <source>Success</source>
         <translation type="unfinished"></translation>
     </message>
@@ -339,17 +355,17 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../main.cpp" line="87"/>
+        <location filename="../main.cpp" line="88"/>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="87"/>
+        <location filename="../main.cpp" line="88"/>
         <source>Can not load theme. Because File </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="88"/>
+        <location filename="../main.cpp" line="89"/>
         <source> is not found!</source>
         <translation type="unfinished"></translation>
     </message>

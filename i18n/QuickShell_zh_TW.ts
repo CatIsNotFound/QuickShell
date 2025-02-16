@@ -155,7 +155,7 @@
     <message>
         <location filename="../GUI/mainwindow.ui" line="295"/>
         <source>Run the selected scripts (not include arguments)</source>
-        <translation type="unfinished"></translation>
+        <translation>執行所選腳本（不包含參數）</translation>
     </message>
     <message>
         <location filename="../GUI/mainwindow.cpp" line="145"/>
@@ -222,7 +222,7 @@
     <message>
         <location filename="../GUI/mainwindow.cpp" line="237"/>
         <source>No available terminals found!</source>
-        <translation type="unfinished"></translation>
+        <translation>找不到可用的終端機！</translation>
     </message>
     <message>
         <location filename="../GUI/mainwindow.cpp" line="255"/>
@@ -264,7 +264,7 @@
         <translation>由應用程式決定</translation>
     </message>
     <message>
-        <location filename="../GUI/preference.ui" line="221"/>
+        <location filename="../GUI/preference.ui" line="226"/>
         <source>Window:</source>
         <translation>視窗：</translation>
     </message>
@@ -281,6 +281,7 @@
     <message>
         <location filename="../GUI/preference.ui" line="100"/>
         <location filename="../GUI/preference.ui" line="148"/>
+        <location filename="../GUI/preference.ui" line="218"/>
         <source>Browse...</source>
         <translation>瀏覽...</translation>
     </message>
@@ -302,7 +303,7 @@
     <message>
         <location filename="../GUI/preference.ui" line="194"/>
         <location filename="../GUI/preference.ui" line="213"/>
-        <location filename="../GUI/preference.ui" line="229"/>
+        <location filename="../GUI/preference.ui" line="234"/>
         <source>Decided by System</source>
         <translation>由系統決定</translation>
     </message>
@@ -312,7 +313,7 @@
         <translation>主題：</translation>
     </message>
     <message>
-        <location filename="../GUI/preference.cpp" line="142"/>
+        <location filename="../GUI/preference.cpp" line="149"/>
         <source>All settings have been saved! Some settings need to take effect on the next startup.</source>
         <translation>所有設定已保存！部分設定需在下次啟動時生效。</translation>
     </message>
@@ -327,13 +328,28 @@
         <translation>腳本集合檔案 (*.conf)</translation>
     </message>
     <message>
-        <location filename="../GUI/preference.cpp" line="56"/>
-        <location filename="../GUI/preference.cpp" line="167"/>
+        <location filename="../GUI/preference.cpp" line="51"/>
+        <source>Script Name: </source>
+        <translation>腳本名稱：</translation>
+    </message>
+    <message>
+        <location filename="../GUI/preference.cpp" line="55"/>
+        <location filename="../GUI/preference.cpp" line="174"/>
         <source>Current file is not valid!</source>
         <translation>目前檔案無效！</translation>
     </message>
     <message>
-        <location filename="../GUI/preference.cpp" line="141"/>
+        <location filename="../GUI/preference.cpp" line="69"/>
+        <source>Open Theme File</source>
+        <translation>打開主題檔案</translation>
+    </message>
+    <message>
+        <location filename="../GUI/preference.cpp" line="70"/>
+        <source>Theme Files (*.qss)</source>
+        <translation>主題檔案 (*.qss)</translation>
+    </message>
+    <message>
+        <location filename="../GUI/preference.cpp" line="148"/>
         <source>Success</source>
         <translation>成功</translation>
     </message>
@@ -341,17 +357,17 @@
 <context>
     <name>QObject</name>
     <message>
-        <location filename="../main.cpp" line="87"/>
+        <location filename="../main.cpp" line="88"/>
         <source>Error</source>
         <translation>錯誤</translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="87"/>
+        <location filename="../main.cpp" line="88"/>
         <source>Can not load theme. Because File </source>
         <translation>無法載入主題。因為檔案 </translation>
     </message>
     <message>
-        <location filename="../main.cpp" line="88"/>
+        <location filename="../main.cpp" line="89"/>
         <source> is not found!</source>
         <translation> 未找到！</translation>
     </message>

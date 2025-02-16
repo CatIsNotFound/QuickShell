@@ -244,7 +244,7 @@ void MainWindow::openTerminal(bool include_args) {
         t_args = ui->lineEdit_ExecutionArguments->text();
     }
     qDebug() << "Get Args:" << t_args;
-    if (comparesEqual(term_app, "Default")) {
+    if (!QString::compare(term_app, "Default")) {
         ret = t.runCommand(default_term, script_name, t_args);
     } else {
         ret = t.runCommand(term_app, script_name, t_args);

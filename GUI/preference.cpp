@@ -33,7 +33,6 @@ Preference::Preference(QWidget *parent)
         if (!path.isEmpty()) {
             ui->comboBox_ScriptPath->addItem(path);
             ui->comboBox_ScriptPath->setCurrentIndex(ui->comboBox_ScriptPath->count() - 1);
-
         }
     });
 
@@ -49,7 +48,7 @@ Preference::Preference(QWidget *parent)
         if (!n) {
             // qDebug() << "is valid!";
             ui->label_valid->setStyleSheet("color: rgb(16, 128, 16);");
-            ui->label_valid->setText("Script Name: " + sc.getValue("Collection/name"));
+            ui->label_valid->setText(tr("Script Name: ") + sc.getValue("Collection/name"));
         } else {
             // qDebug() << "is not valid!";
             ui->label_valid->setStyleSheet("color: rgb(192, 16, 16);");
@@ -64,6 +63,20 @@ Preference::Preference(QWidget *parent)
         win->exec();
     });
 
+    connect(ui->comboBox_InterfaceThemes, &QComboBox::currentIndexChanged, this, [=] {
+        if (ui->comboBox_InterfaceThemes->currentIndex() == 1) {
+            QString path = QFileDialog::getOpenFileName(this,
+                                                        tr("Open Theme File"), "../themes",
+                                                        tr("Theme Files (*.qss)"));
+            if (!path.isEmpty()) {
+                ui->comboBox_InterfaceThemes->addItem(path);
+                ui->comboBox_InterfaceThemes->setCurrentIndex(ui->comboBox_InterfaceThemes->count() - 1);
+            } else {
+                ui->comboBox_InterfaceThemes->setCurrentIndex(0);
+            }
+        }
+    });
+
     // add items to listWidgets
     // Get supported languages
     QDir dir(":i18n/");
@@ -76,12 +89,6 @@ Preference::Preference(QWidget *parent)
         supportedLang.push_back(tmp);
     }
     ui->comboBox_InterfaceLanguage->addItems(supportedLang);
-    // Get supported themes
-    QDir themeDir("./themes/");
-    QStringList filter;
-    filter << "*.qss";
-    QStringList themes = themeDir.entryList(filter, QDir::Files);
-    ui->comboBox_InterfaceThemes->addItems(themes);
     // Get Window widgets
     ui->comboBox_InterfaceWindow->addItems(QStyleFactory::keys());
 }
@@ -152,7 +159,7 @@ void Preference::init(Settings *config) {
 void Preference::getAllSettings() {
     // General
     QString name = settings->getValue("Collection", "name");
-    if (!comparesEqual(name, "Default")) {
+    if (QString::compare(name, "Default")) {
         ui->comboBox_ScriptPath->addItem(name);
         ui->comboBox_ScriptPath->setCurrentIndex(1);
         ScriptsCollection sc;
@@ -168,17 +175,17 @@ void Preference::getAllSettings() {
         }
     }
     name = settings->getValue("Collection", "open_as");
-    if (!comparesEqual(name, "Default")) {
+    if (QString::compare(name, "Default")) {
         ui->comboBox_DefaultTerminalApp->addItem(name);
         ui->comboBox_DefaultTerminalApp->setCurrentIndex(1);
     }
 
     // Interface
     name = settings->getValue("Interface", "language");
-    if (!comparesEqual(name, "System")) {
+    if (QString::compare(name, "System")) {
         for (int i = 1; i < ui->comboBox_InterfaceLanguage->count(); i++) {
             QString code = ui->comboBox_InterfaceLanguage->itemText(i).section("(", 1).split(")")[0];
-            if (comparesEqual(name, code)) {
+            if (!QString::compare(name, code)) {
                 ui->comboBox_InterfaceLanguage->setCurrentIndex(i);
                 break;
             }
@@ -186,13 +193,14 @@ void Preference::getAllSettings() {
     }
 
     name = settings->getValue("Interface", "theme");
-    if (!comparesEqual(name, "System")) {
-        int k = ui->comboBox_InterfaceThemes->findText(name);
+    if (QString::compare(name, "System")) {
+        ui->comboBox_InterfaceThemes->addItem(name);
+        int k = ui->comboBox_InterfaceThemes->count() - 1;
         ui->comboBox_InterfaceThemes->setCurrentIndex(k);
     }
 
     name = settings->getValue("Interface", "window");
-    if (!comparesEqual(name, "System")) {
+    if (QString::compare(name, "System")) {
         int k = ui->comboBox_InterfaceWindow->findText(name);
         ui->comboBox_InterfaceWindow->setCurrentIndex(k);
     }
@@ -202,7 +210,7 @@ void Preference::getTerminal(const QString &index) {
     int c = ui->comboBox_DefaultTerminalApp->count();
     if (c > 1) {
         for (int i = 0; i < c; i++) {
-            if (comparesEqual(index, ui->comboBox_DefaultTerminalApp->itemText(i))) {
+            if (!QString::compare(index, ui->comboBox_DefaultTerminalApp->itemText(i))) {
                 ui->comboBox_DefaultTerminalApp->setCurrentIndex(i);
                 return;
             }
